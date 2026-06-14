@@ -241,10 +241,6 @@ static fs::path resolve_input_file(const string& token, const fs::path& task_roo
 
 	string filename = raw_path.filename().string();
 	vector<fs::path> recursive_candidates = collect_named_files(task_root, filename);
-	if (task_root != fs::current_path()) {
-		vector<fs::path> fallback = collect_named_files(fs::current_path(), filename);
-		recursive_candidates.insert(recursive_candidates.end(), fallback.begin(), fallback.end());
-	}
 	return choose_best_input_candidate(recursive_candidates, role);
 }
 
@@ -848,7 +844,10 @@ int main()
 				missing_file = true;
 			}
 		}
-		if (missing_file) return 1;
+		if (missing_file) {
+			cout << "[InputError] Please copy benchmark CSV files into the unified data layout described in data/README.md." << endl;
+			return 1;
+		}
 
 		getData(data_file.string());
 		get_peer_time(time_file1.string());

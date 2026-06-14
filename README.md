@@ -79,29 +79,9 @@ You may also create a Visual Studio C++ project and add the source files manuall
 
 ## Dataset Preparation
 
-After this code branch is merged with the dataset branch, the repository contains the benchmark instances used by the experiments. The dataset branch provides two groups of test instances:
+The repository contains the original benchmark directory `??????/` from the dataset branch and a unified runtime layout under `data/`. The C++ program uses the unified `data/` layout by default.
 
-```text
-Experimental test instances/
-|-- Solomon 36 test instances/
-|   |-- data/
-|   |-- time-distance-matrix/
-|   `-- Readme.txt
-`-- Platform 45 test instances/
-    |-- data/
-    |-- time-distance-matrix/
-    `-- Readme.txt
-```
-
-The program no longer requires benchmark CSV files to be copied into the repository root. It auto-detects a unified task list in the following order:
-
-```text
-data/Mytxt.txt
-data/<benchmark>/data/Mytxt.txt
-any Mytxt.txt found recursively under the working directory
-```
-
-For local development without committing datasets, the recommended layout is:
+Tracked runtime layout:
 
 ```text
 data/
@@ -110,6 +90,14 @@ data/
 |   |   |-- Mytxt.txt
 |   |   `-- processed/
 |   `-- time-distance-matrix/
+|       |-- src-src-time/
+|       |-- dest-dest-time/
+|       |-- dest-src-time/
+|       |-- src-dest-time/
+|       |-- src-src-dis/
+|       |-- dest-dest-dis/
+|       |-- dest-src-dis/
+|       `-- src-dest-dis/
 `-- solomon_36/
     |-- data/
     |   |-- Mytxt.txt
@@ -119,21 +107,26 @@ data/
     `-- time-distance-matrix/
 ```
 
-Each line in `Mytxt.txt` may use either the full 11-column platform format:
+The repository tracks the folder skeleton and the two task lists:
 
 ```text
-stoptime max_delay data_file time1 time2 time3 time4 dist1 dist2 dist3 dist4
+data/realworld_45/data/Mytxt.txt
+data/solomon_36/data/Mytxt.txt
 ```
 
-or the concise 6-column Solomon format:
+Large CSV files are not duplicated under `data/`. Copy them from `??????/` into the matching folders before running. Detailed source-to-target migration steps are provided in [data/README.md](data/README.md).
+
+Task-list formats:
 
 ```text
+# Platform 45 format
+stoptime max_delay data_file time1 time2 time3 time4 dist1 dist2 dist3 dist4
+
+# Solomon 36 format
 stoptime data_file time1 time2 time3 time4
 ```
 
-For the 6-column format, `EXPERIMENT_DEFAULT_MAX_DELAY` is used and the four time matrices are reused as distance matrices, matching the historical Solomon setup. File entries can be bare filenames; the program resolves them inside the benchmark `data/` and `time-distance-matrix/` folders.
-
-More dataset placement notes are provided in [data/README.md](data/README.md).
+For the 6-column Solomon format, `EXPERIMENT_DEFAULT_MAX_DELAY` is used and the four time matrices are reused as distance matrices, matching the historical Solomon setup.
 
 ## Quick Start
 
