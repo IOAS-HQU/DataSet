@@ -23,8 +23,6 @@ The repository is intended for reproducing algorithmic runs and ablation setting
   <img src="docs/assets/framework_placeholder.svg" width="760" alt="Framework placeholder">
 </p>
 
-> Placeholder: replace `docs/assets/framework_placeholder.svg` with the final framework figure from the paper if the figure is allowed to be released.
-
 ## Main Features
 
 - **Dynamic objective selection**: IoP is computed at the beginning of each generation, SPO is obtained with softmax, and the active evolutionary objective is sampled from SPO.
@@ -79,7 +77,7 @@ You may also create a Visual Studio C++ project and add the source files manuall
 
 ## Dataset Preparation
 
-The repository contains the original benchmark directory `??????/` from the dataset branch and a unified runtime layout under `data/`. The C++ program uses the unified `data/` layout by default.
+The repository contains the original benchmark directory `实验测试算例/` from the dataset branch and a unified runtime layout under `data/`. The C++ program uses the unified `data/` layout by default.
 
 Tracked runtime layout:
 
@@ -114,7 +112,7 @@ data/realworld_45/data/Mytxt.txt
 data/solomon_36/data/Mytxt.txt
 ```
 
-Large CSV files are not duplicated under `data/`. Copy them from `??????/` into the matching folders before running. Detailed source-to-target migration steps are provided in [data/README.md](data/README.md).
+Large CSV files are not duplicated under `data/`. Copy them from `实验测试算例/` into the matching folders before running. Detailed source-to-target migration steps are provided in [data/README.md](data/README.md).
 
 Task-list formats:
 
@@ -168,28 +166,16 @@ After a run, outputs are written under the current working directory:
 
 ## Evaluation Protocol
 
-For paper reporting, the following evaluation settings are recommended:
+the following evaluation settings are recommended:
 
 - Treat all four objectives as minimization objectives.
 - Compute metrics task by task; do not mix objective scales across different tasks.
 - Deduplicate each run-level result and keep nondominated points before metric calculation.
-- If normalized HV/IGD is reported, use a common task-level `ideal` and `nadir` for all methods included in the same comparison.
 - Use `[1.1, 1.1, 1.1, 1.1]` as the normalized HV reference point.
 - For IGD, build the task-level reference front by merging normalized nondominated points from all methods and all runs included in the same comparison, then applying nondominated filtering again.
 
 See [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for the concise metric-setting record.
 
-## Main Results
-
-Replace the following placeholder table with the final paper results if they are allowed to be released.
-
-| Method | HV up | IGD down | Notes |
-| --- | ---: | ---: | --- |
-| Baseline 1 | TBD | TBD | TBD |
-| Baseline 2 | TBD | TBD | TBD |
-| D-NSGA2+ | TBD | TBD | Complete paper-version implementation |
-
-Detailed generated run outputs should not be committed to the source tree. If complete experimental outputs need to be released, use GitHub Releases, Zenodo, or the repository recommended by the journal/conference.
 
 ## Reproducibility Checklist
 
@@ -199,38 +185,10 @@ Detailed generated run outputs should not be committed to the source tree. If co
 - Record the benchmark group, dataset version, and preprocessing details with the generated results.
 - Do not commit generated outputs to Git.
 
-## Citation
-
-If this repository is useful for your research, please cite the related paper when available:
-
-```bibtex
-@article{dnsga2plus2026,
-  title   = {[Paper Title]},
-  author  = {[Author 1] and [Author 2] and [Author 3]},
-  journal = {[Journal or Conference Name]},
-  year    = {2026},
-  volume  = {[Volume]},
-  number  = {[Number]},
-  pages   = {[Pages]},
-  doi     = {[DOI]}
-}
-```
-
-You may also cite this repository:
-
-```bibtex
-@misc{dnsga2plus_code2026,
-  title        = {D-NSGA2+ Experimental Code},
-  author       = {[Author 1] and [Author 2]},
-  year         = {2026},
-  howpublished = {\url{https://github.com/zhangjingwei290-hash/NSGA2-}},
-  note         = {GitHub repository}
-}
-```
 
 ## Acknowledgements
 
-We thank the maintainers of the benchmark datasets used in the experiments. We also acknowledge related open-source implementations and prior work in multi-objective evolutionary optimization and vehicle routing.
+We thank the maintainers of the benchmark datasets used in the experiments.
 
 ## License
 
