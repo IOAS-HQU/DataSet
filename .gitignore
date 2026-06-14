@@ -1,0 +1,45 @@
+# Visual Studio / C++ build artifacts
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.ipch
+*.log
+*.exe
+*.tlog
+*.lastbuildstate
+*.suo
+*.user
+*.VC.db
+*.VC.opendb
+
+# Runtime outputs
+Result/
+Stage/
+runs/
+time-distance-matrix/
+figures/
+metric_compare*/
+*.txt
+*.csv
+!README.md
+!docs/**/*.md
+
+# Dataset directory: keep public instructions, ignore actual data
+data/*
+!data/README.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+analysis_outputs/

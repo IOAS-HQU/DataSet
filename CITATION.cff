@@ -1,0 +1,18 @@
+﻿cff-version: 1.2.0
+title: "D-NSGA2+ Reproducibility Code for Intercity Ride-sharing Routing"
+message: "If you use this code, please cite the related paper when available and cite this repository with the commit hash."
+type: software
+authors:
+  - family-names: "Zhang"
+    given-names: "Jingwei"
+repository-code: "https://github.com/zhangjingwei290-hash/NSGA2-"
+abstract: "Experimental code for D-NSGA2+ multi-objective intercity ride-sharing routing, including IoP/SPO objective selection, adaptive operator selection, mutation ablation switches, and reproducible run configuration."
+keywords:
+  - "D-NSGA2+"
+  - "multi-objective optimization"
+  - "ride-sharing routing"
+  - "hypervolume"
+  - "IGD"
+license: MIT
+version: "0.1.0-reproducibility"
+date-released: "2026-06-14"
