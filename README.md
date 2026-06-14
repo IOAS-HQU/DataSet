@@ -1,4 +1,4 @@
-﻿# VRP-IRS Benchmark Datasets
+﻿# Datasets
 
 This repository provides public benchmark datasets for the **Vehicle Routing Problem for Intercity Ride-Sharing (VRP-IRS)**.
 
