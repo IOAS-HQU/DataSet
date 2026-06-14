@@ -1,6 +1,6 @@
 ﻿# Dataset Layout
 
-This directory defines the unified dataset layout used by the released C++ code. The repository tracks only this layout, `.gitkeep` placeholders, and the two task-list files. Large CSV benchmark files should be copied from `实验测试算例/` after cloning or after merging the dataset branch.
+This directory defines the unified dataset layout used by the released C++ code. The repository tracks only this layout, `.gitkeep` placeholders, and the two task-list files. Large CSV benchmark files should be copied from `benchmark_instances/` after cloning or after merging the dataset branch.
 
 ## Target Layout
 
@@ -28,44 +28,44 @@ data/
     `-- time-distance-matrix/
 ```
 
-## Migration From `实验测试算例/`
+## Migration From `benchmark_instances/`
 
 ### Platform 45 Instances
 
 Source directory:
 
 ```text
-实验测试算例/基于某出行平台的45个测试算例/
+benchmark_instances/xiamen_zhangzhou_45/
 ```
 
 Copy files as follows:
 
 ```text
-实验测试算例/基于某出行平台的45个测试算例/data/数据集(时间处理版）/*.csv
+benchmark_instances/xiamen_zhangzhou_45/data/processed/*.csv
   -> data/realworld_45/data/processed/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/src-src-time矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/src-src-time/*.csv
   -> data/realworld_45/time-distance-matrix/src-src-time/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/dest-dest-time矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/dest-dest-time/*.csv
   -> data/realworld_45/time-distance-matrix/dest-dest-time/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/dest-src-time矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/dest-src-time/*.csv
   -> data/realworld_45/time-distance-matrix/dest-src-time/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/src-dest-time矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/src-dest-time/*.csv
   -> data/realworld_45/time-distance-matrix/src-dest-time/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/src-src-dis矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/src-src-dis/*.csv
   -> data/realworld_45/time-distance-matrix/src-src-dis/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/dest-dest-dis矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/dest-dest-dis/*.csv
   -> data/realworld_45/time-distance-matrix/dest-dest-dis/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/dest-src-dis矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/dest-src-dis/*.csv
   -> data/realworld_45/time-distance-matrix/dest-src-dis/
 
-实验测试算例/基于某出行平台的45个测试算例/time-distance-matrix/src-dest-dis矩阵/*.csv
+benchmark_instances/xiamen_zhangzhou_45/time-distance-matrix/src-dest-dis/*.csv
   -> data/realworld_45/time-distance-matrix/src-dest-dis/
 ```
 
@@ -80,22 +80,22 @@ data/realworld_45/data/Mytxt.txt
 Source directory:
 
 ```text
-实验测试算例/基于Solomon的36个测试算例/
+benchmark_instances/modified_solomon_36/
 ```
 
 Copy files as follows:
 
 ```text
-实验测试算例/基于Solomon的36个测试算例/data/c/*.csv
+benchmark_instances/modified_solomon_36/data/c/*.csv
   -> data/solomon_36/data/c/
 
-实验测试算例/基于Solomon的36个测试算例/data/r/*.csv
+benchmark_instances/modified_solomon_36/data/r/*.csv
   -> data/solomon_36/data/r/
 
-实验测试算例/基于Solomon的36个测试算例/data/rc/*.csv
+benchmark_instances/modified_solomon_36/data/rc/*.csv
   -> data/solomon_36/data/rc/
 
-实验测试算例/基于Solomon的36个测试算例/time-distance-matrix/*.csv
+benchmark_instances/modified_solomon_36/time-distance-matrix/*.csv
   -> data/solomon_36/time-distance-matrix/
 ```
 
@@ -138,3 +138,4 @@ const char* const EXPERIMENT_TASK_LIST_PATH = "data/solomon_36/data/Mytxt.txt";
 ```
 
 Generated outputs are written to `Result/` and `Stage/`, which are ignored by Git.
+

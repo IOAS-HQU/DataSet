@@ -1,4 +1,4 @@
-# D-NSGA2+ Experimental Code
+﻿# D-NSGA2+ Experimental Code
 
 > Public experimental code for **D-NSGA2+**, a diversity-enhanced multi-objective evolutionary algorithm for intercity ride-sharing routing.
 
@@ -77,7 +77,7 @@ You may also create a Visual Studio C++ project and add the source files manuall
 
 ## Dataset Preparation
 
-The repository contains the original benchmark directory `实验测试算例/` from the dataset branch and a unified runtime layout under `data/`. The C++ program uses the unified `data/` layout by default.
+The repository contains the original benchmark directory `benchmark_instances/` from the dataset branch and a unified runtime layout under `data/`. The C++ program uses the unified `data/` layout by default.
 
 Tracked runtime layout:
 
@@ -112,7 +112,7 @@ data/realworld_45/data/Mytxt.txt
 data/solomon_36/data/Mytxt.txt
 ```
 
-Large CSV files are not duplicated under `data/`. Copy them from `实验测试算例/` into the matching folders before running. Detailed source-to-target migration steps are provided in [data/README.md](data/README.md).
+Large CSV files are not duplicated under `data/`. Copy them from `benchmark_instances/` into the matching folders before running. Detailed source-to-target migration steps are provided in [data/README.md](data/README.md).
 
 Task-list formats:
 
@@ -199,3 +199,5 @@ This project is released under the MIT License. See [LICENSE](LICENSE).
 - The source code inherits some historical console output; old encoding may still appear in the terminal. For formal experiments, rely on result files and `Result/run_config.txt` rather than console text.
 - This repository provides experimental algorithm code and reproducibility instructions. Generated outputs are intentionally excluded from version control.
 - If `ExperimentConfig.h` is modified for ablation studies, keep the corresponding `Result/run_config.txt` with the generated results.
+
+
