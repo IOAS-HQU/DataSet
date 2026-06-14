@@ -1,40 +1,39 @@
-# 测试集说明
+﻿# Benchmark Instance Description
 
-本仓库包含两个用于 **VRP-IRS（Vehicle Routing Problem for Intercity Ride-Sharing，城际拼车车辆路径问题）** 的测试集：
+This repository contains two benchmark groups for the **Vehicle Routing Problem for Intercity Ride-Sharing (VRP-IRS)**:
 
-1. **Modified Solomon Benchmark Instances（记为 `Sm`）**
-2. **Xiamen--Zhangzhou Real-world Operational Instances（厦门--漳州真实运营算例）**
+1. **Modified Solomon Benchmark Instances**, denoted as `Sm`.
+2. **Xiamen-Zhangzhou Real-world Operational Instances**.
 
-这两个测试集分别用于评估算法在标准化可控场景和真实城际拼车运营场景下的表现。
+The two benchmark groups are designed to evaluate algorithm performance under both controlled benchmark conditions and realistic intercity ride-sharing operating conditions.
 
 ## 1. Modified Solomon Benchmark Instances (`Sm`)
 
-第一个测试集基于经典 **Solomon VRPTW benchmark** 构造。原始 Solomon 算例主要面向单仓库、城内物流配送问题，与本文研究的双城城际拼车场景并不完全一致。因此，我们对 Solomon 算例进行了适配，使其能够反映 VRP-IRS 的主要运营特征。
+The first benchmark group is adapted from the classical **Solomon VRPTW benchmark**. The original Solomon instances mainly describe single-depot urban logistics distribution, which does not fully match the two-city intercity ride-sharing scenario studied in this work. Therefore, the Solomon instances are modified to reflect the main operating characteristics of VRP-IRS.
 
-具体生成方式如下：
+The generation process is summarized as follows:
 
-- **原始来源**：经典 Solomon VRPTW 算例，包括 `C`、`R` 和 `RC` 三类实例。
-- **空间结构改造**：将原始客户点映射到两个相互分离的城市区域中，分别表示城际出行中的出发城市和到达城市。
-- **城际走廊设置**：在两个城市区域之间设置城际通道，城际距离取值范围为 60--100 个距离单位，用于模拟跨城长距离出行。
-- **需求类型转换**：将原始物流需求转换为乘客人数需求。每个订单的乘客人数从 `{1, 2, 3, 4}` 中随机生成，以匹配常见私家车或小型车辆的拼车容量。
-- **时间窗保留**：保留 Solomon 原始算例中的时间窗特征，用于测试算法在不同时间窗紧张程度下的表现。其中，`C` 类表示聚集型需求，`R` 类表示随机分布需求，`RC` 类表示混合型需求。
+- **Original source**: classical Solomon VRPTW instances, including `C`, `R`, and `RC` instance types.
+- **Spatial structure adaptation**: customer locations are mapped into two separated urban regions, representing the origin city and the destination city in intercity travel.
+- **Intercity corridor setting**: an intercity travel corridor is introduced between the two urban regions. The intercity distance range is set to 60-100 distance units to simulate long-distance cross-city travel.
+- **Demand conversion**: logistics demand is converted into passenger demand. The passenger count of each order is randomly generated from `{1, 2, 3, 4}`, matching the capacity range of common private cars or small ride-sharing vehicles.
+- **Time-window preservation**: the time-window characteristics of the original Solomon instances are retained. `C` represents clustered demand, `R` represents randomly distributed demand, and `RC` represents mixed demand.
 
-该测试集共包含 **36 个 modified Solomon 算例**。这些算例主要用于在标准 benchmark 条件下测试算法的鲁棒性、收敛性和多目标搜索能力。
+This benchmark group contains **36 modified Solomon instances**. These instances are mainly used to evaluate algorithm robustness, convergence, and multi-objective search ability under standardized benchmark conditions.
 
-## 2. Xiamen--Zhangzhou Real-world Operational Instances
+## 2. Xiamen-Zhangzhou Real-world Operational Instances
 
-第二个测试集来源于中国 **厦门--漳州** 城际拼车场景的历史订单数据。相比 modified Solomon 算例，该测试集更接近真实运营环境，能够反映实际城际拼车中的空间分布、道路距离、行驶时间和需求不平衡等特征。
+The second benchmark group is derived from historical ride-sharing order data in the **Xiamen-Zhangzhou** intercity operating scenario in China. Compared with the modified Solomon instances, this benchmark group is closer to real-world operation and reflects practical characteristics such as spatial distribution, road-network distance, travel time, and directional demand imbalance.
 
-具体生成方式如下：
+The generation process is summarized as follows:
 
-- **原始来源**：厦门--漳州城际拼车平台的历史订单数据。
-- **路网信息**：算例中的距离矩阵和时间矩阵基于真实道路网络距离和行驶时间构造。
-- **算例规模**：根据订单数量划分为三类：
-  - `S`：小规模算例，包含 20 个订单；
-  - `M`：中规模算例，包含 100--300 个订单；
-  - `L`：大规模算例，包含 200--600 个订单。
-- **方向不平衡设置**：为了模拟两城之间上下行需求不均衡的情况，订单方向比例设置为从 `1:1` 到 `1:5` 不等。
-- **时间窗设置**：乘客时间窗宽度设置为 30、45 或 60 分钟，用于表示不同程度的调度紧张性。
+- **Original source**: historical order data from an intercity ride-sharing platform operating between Xiamen and Zhangzhou.
+- **Road-network information**: distance matrices and time matrices are constructed from real road-network distance and travel-time information.
+- **Instance scale**: instances are divided into three groups according to order quantity:
+  - `S`: small-scale instances with 20 orders.
+  - `M`: medium-scale instances with 100-300 orders.
+  - `L`: large-scale instances with 200-600 orders.
+- **Directional imbalance**: order-direction ratios are set from `1:1` to `1:5` to simulate uneven travel demand between the two cities.
+- **Time-window setting**: passenger time-window widths are set to 30, 45, or 60 minutes to represent different levels of scheduling tightness.
 
-该测试集共包含 **45 个真实运营算例**。这些算例主要用于测试算法在真实城际拼车场景中的可扩展性和实际适用性。
-
+This benchmark group contains **45 real-world operational instances**. These instances are mainly used to evaluate algorithm scalability and practical applicability in realistic intercity ride-sharing scenarios.
