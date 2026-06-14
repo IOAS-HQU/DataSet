@@ -31,9 +31,13 @@ metric_compare*/
 !README.md
 !docs/**/*.md
 
-# Dataset directory: keep public instructions, ignore actual data
-data/*
+# Dataset directory: keep public layout/task lists, ignore actual data
+data/**/*
+!data/**/
 !data/README.md
+!data/**/README.md
+!data/**/.gitkeep
+!data/**/Mytxt.txt
 
 # OS files
 .DS_Store
