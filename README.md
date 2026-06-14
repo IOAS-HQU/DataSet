@@ -20,7 +20,7 @@ The repository is intended for reproducing algorithmic runs and ablation setting
 ## Framework
 
 <p align="center">
-  <img src="docs/assets/framework_placeholder.svg" width="760" alt="Framework placeholder">
+  <img src="docs/assets/dnsga2plus_framework.png" width="760" alt="D-NSGA2+ framework">
 </p>
 
 ## Main Features
