@@ -1,11 +1,11 @@
-# Documentation Assets
+﻿# Documentation Assets
 
-This directory is reserved for public documentation assets, such as the framework figure used in `README.md`.
+This directory stores public documentation assets used by the repository README and reproducibility notes.
 
-Recommended file name:
+Current assets:
 
 ```text
-framework_placeholder.svg
+dnsga2plus_framework.png
 ```
 
-Only place documentation assets here when they are intended for public release.
+The framework figure is referenced by the top-level `README.md`.
